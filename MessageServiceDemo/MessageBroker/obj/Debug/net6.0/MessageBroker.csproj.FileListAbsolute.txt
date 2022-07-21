@@ -1,0 +1,12 @@
+C:\Users\Rajesh Reddy\source\repos\MessageServiceDemo\MessageBroker\bin\Debug\net6.0\MessageBroker.deps.json
+C:\Users\Rajesh Reddy\source\repos\MessageServiceDemo\MessageBroker\bin\Debug\net6.0\MessageBroker.dll
+C:\Users\Rajesh Reddy\source\repos\MessageServiceDemo\MessageBroker\bin\Debug\net6.0\MessageBroker.pdb
+C:\Users\Rajesh Reddy\source\repos\MessageServiceDemo\MessageBroker\obj\Debug\net6.0\MessageBroker.csproj.AssemblyReference.cache
+C:\Users\Rajesh Reddy\source\repos\MessageServiceDemo\MessageBroker\obj\Debug\net6.0\MessageBroker.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Rajesh Reddy\source\repos\MessageServiceDemo\MessageBroker\obj\Debug\net6.0\MessageBroker.AssemblyInfoInputs.cache
+C:\Users\Rajesh Reddy\source\repos\MessageServiceDemo\MessageBroker\obj\Debug\net6.0\MessageBroker.AssemblyInfo.cs
+C:\Users\Rajesh Reddy\source\repos\MessageServiceDemo\MessageBroker\obj\Debug\net6.0\MessageBroker.csproj.CoreCompileInputs.cache
+C:\Users\Rajesh Reddy\source\repos\MessageServiceDemo\MessageBroker\obj\Debug\net6.0\MessageBroker.dll
+C:\Users\Rajesh Reddy\source\repos\MessageServiceDemo\MessageBroker\obj\Debug\net6.0\refint\MessageBroker.dll
+C:\Users\Rajesh Reddy\source\repos\MessageServiceDemo\MessageBroker\obj\Debug\net6.0\MessageBroker.pdb
+C:\Users\Rajesh Reddy\source\repos\MessageServiceDemo\MessageBroker\obj\Debug\net6.0\ref\MessageBroker.dll

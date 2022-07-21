@@ -10,18 +10,23 @@ namespace MessageBrokerDemo.Impl
 {
     public class EmployeeDirectory : IDirectory
     {
-        IRepo repository;
+        #region Private Members
+        IRepo repository; 
+        #endregion
+
+        #region Constructor
         public EmployeeDirectory(IRepo repo)
         {
             repository = repo;
         }
+        #endregion
+
+        #region IDirectory Interface Implementation
         public Employee Add(Employee employee)
         {
             employee = repository.CreateEmp(employee);
             return employee;
         }
-
-       
 
         public Employee Delete(int id)
         {
@@ -33,8 +38,9 @@ namespace MessageBrokerDemo.Impl
         {
             Employee emp = repository.Read(employee.EmployeeID);
             return emp;
-        }
+        } 
+        #endregion
 
-       
+
     }
 }

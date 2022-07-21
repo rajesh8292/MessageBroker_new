@@ -26,30 +26,39 @@ namespace MessageBrokerDemo
             Publisher publisher = new Publisher(messageBus);
             Subscriber1 subscriber1 = new Subscriber1(messageBus);
             Subscriber2 subscriber2 = new Subscriber2(messageBus);
-            
-            publisher.CreateEmployee();
-            publisher.DeleteEmployee();
-            
-            //Task.Factory.StartNew(() =>
-            //{
-            //    publisher.CreateEmployee();
-            //});
-            //Task.Factory.StartNew(() =>
-            //{
-            //    publisher.DeleteEmployee();
-            //});
 
-            subscriber1.UnSubscribe();
-            publisher.CreateEmployee();
-            publisher.DeleteEmployee();
-            //Task.Factory.StartNew(() =>
-            //{
-            //    publisher.CreateEmployee();
-            //});
-            //Task.Factory.StartNew(() =>
-            //{
-            //    publisher.DeleteEmployee();
-            //});
+            
+
+
+            var task1 = Task.Factory.StartNew(() =>
+            {
+                publisher.CreateEmployee();
+            });
+            var task2 = Task.Factory.StartNew(() =>
+            {
+                publisher.DeleteEmployee();
+            });
+
+            Task.WaitAll(new Task[] { task1, task2 }); // <-- this will wait for both to complete
+
+            
+            Console.WriteLine("Start -UnSubscribing all events from sub1 ");
+            //subscriber1.UnSubscribe();
+            subscriber1.UnSubscribeTo<EmployeeCreatedMessage>();
+
+            Console.WriteLine("End -UnSubscribing all events from sub1 ");
+
+            task1 = Task.Factory.StartNew(() =>
+            {
+                publisher.CreateEmployee();
+            });
+            task2 = Task.Factory.StartNew(() =>
+            {
+                publisher.DeleteEmployee();
+            });
+            Task.WaitAll(new Task[] { task1, task2 }); // <-- this will wait for both to complete
+
+           
 
 
         }

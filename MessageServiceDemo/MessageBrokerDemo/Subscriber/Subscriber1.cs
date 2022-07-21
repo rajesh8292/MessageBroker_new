@@ -1,10 +1,5 @@
 ﻿using MessageBroker.Interfaces;
 using MessageBrokerDemo.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MessageBrokerDemo.Subscriber
 {
@@ -34,9 +29,11 @@ namespace MessageBrokerDemo.Subscriber
         {
             return this.messageBus.UnSubscribe(this);
         }
-        public bool UnSubscribeTo()
+        public bool UnSubscribeTo<T>() where T : IMessage
         {
-            return this.messageBus.UnSubscribeTo<EmployeeDeletedMessage>();
+            
+            //T = typeof(type1);
+            return this.messageBus.UnSubscribeTo<T>();
         }
     }
 }

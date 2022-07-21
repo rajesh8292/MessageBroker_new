@@ -10,6 +10,7 @@ namespace MessageBrokerDemo.Impl
 {
     public  class InMemoryRepo :IRepo
     {
+        #region Single Instace Process
         private Dictionary<int, Employee> EmployeeData;
         private static IRepo INSTANCE = null;
 
@@ -19,6 +20,13 @@ namespace MessageBrokerDemo.Impl
                 INSTANCE = new InMemoryRepo();
             return INSTANCE;
         }
+        private InMemoryRepo()
+        {
+            EmployeeData = new Dictionary<int, Employee>();
+        }
+        #endregion
+
+        #region IRepo Interface implementation
         public Employee CreateEmp(Employee employee)
         {
             var keyList = EmployeeData.Keys.ToList();
@@ -64,7 +72,7 @@ namespace MessageBrokerDemo.Impl
                 EmployeeData.Remove(id);
             }
             return emp;
-            
+
         }
         public int EmpCount
         {
@@ -72,10 +80,8 @@ namespace MessageBrokerDemo.Impl
             {
                 return EmployeeData.Keys.Count();
             }
-        }
-        private InMemoryRepo()
-        {
-            EmployeeData = new Dictionary<int, Employee>();
-        }
+        } 
+        #endregion
+        
     }
 }

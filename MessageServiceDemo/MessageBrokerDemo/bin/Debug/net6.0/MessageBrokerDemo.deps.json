@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "MessageBrokerDemo/1.0.0": {
+        "dependencies": {
+          "MessageBroker": "1.0.0"
+        },
+        "runtime": {
+          "MessageBrokerDemo.dll": {}
+        }
+      },
+      "MessageBroker/1.0.0": {
+        "runtime": {
+          "MessageBroker.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "MessageBrokerDemo/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MessageBroker/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

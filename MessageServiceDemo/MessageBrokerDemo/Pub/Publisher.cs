@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 
 namespace MessageBrokerDemo.Pub
 {
+    /// <summary>
+    /// Publisher service
+    /// </summary>
     public class Publisher
     {
         #region Private Members
@@ -28,7 +31,7 @@ namespace MessageBrokerDemo.Pub
         #endregion
 
         #region Public Methods
-        public async void CreateEmployee()
+        public  void CreateEmployee()
         {
             Employee emp = repo.Read(rnd.Next(1, 10));
             Console.WriteLine("--------------");
@@ -38,16 +41,16 @@ namespace MessageBrokerDemo.Pub
                 Description = String.Format("[Add Emp] A employee with name {0} has been created.",emp.EmpName),
             });
 
-            emp = repo.Read(rnd.Next(1, 10));
-            Console.WriteLine("--------------");
-            this.messageBus.Publish<EmployeeCreatedMessage>(new EmployeeCreatedMessage
-            {
-                Employee = emp,
-                Description = String.Format("[Add Emp] A employee with name {0} has been created.", emp.EmpName),
-            });
+            //emp = repo.Read(rnd.Next(1, 10));
+            //Console.WriteLine("--------------");
+            //this.messageBus.Publish<EmployeeCreatedMessage>(new EmployeeCreatedMessage
+            //{
+            //    Employee = emp,
+            //    Description = String.Format("[Add Emp] A employee with name {0} has been created.", emp.EmpName),
+            //});
         }
 
-        public void DeleteEmployee()
+        public  void DeleteEmployee()
         {
             var emp = repo.Read(repo.EmpCount-1);
             if (emp == null) return;
@@ -58,6 +61,7 @@ namespace MessageBrokerDemo.Pub
                 Employee = emp
 
             });
+            Console.WriteLine("--------------");
         } 
         #endregion
     }
