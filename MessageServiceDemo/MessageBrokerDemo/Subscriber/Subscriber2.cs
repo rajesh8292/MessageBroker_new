@@ -11,17 +11,20 @@ namespace MessageBrokerDemo.Subscriber
     public class Subscriber2 : ISubscribe<EmployeeCreatedMessage>
     {
         private IMessageBus messageBus;
-
-        public Subscriber2(IMessageBus messageBus)
+        private INotifier broker;
+        public Subscriber2(IMessageBus messageBus, INotifier broker)
         {
             this.messageBus = messageBus;
 
             var subscription = this.messageBus.Subscribe(this);
+
+            this.broker = broker;
         }
 
         public void OnMessageReceived(EmployeeCreatedMessage message)
         {
-            Console.WriteLine("Sub2 Msg received : " + message.Description);
+            broker.Notify("Sub2 Msg received : " + message.Description);
+            //Console.WriteLine("Sub2 Msg received : " + message.Description);
         }
 
        

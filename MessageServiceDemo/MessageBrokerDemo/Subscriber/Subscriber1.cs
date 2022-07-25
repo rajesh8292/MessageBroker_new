@@ -6,23 +6,26 @@ namespace MessageBrokerDemo.Subscriber
     public class Subscriber1 : ISubscribe<EmployeeCreatedMessage>, ISubscribe<EmployeeDeletedMessage>
     {
         private IMessageBus messageBus;
-
-        public Subscriber1(IMessageBus messageBus)
+        private INotifier broker;
+        public Subscriber1(IMessageBus messageBus,INotifier broker)
         {
             this.messageBus = messageBus;
 
             var subscription = this.messageBus.Subscribe(this);
+            this.broker = broker;
         }
 
         public void OnMessageReceived(EmployeeCreatedMessage message)
         {
-            Console.WriteLine("Sub1 Msg received : " + message.Description);
+            broker.Notify("Sub1 Msg received : " + message.Description);
+            
             
         }
 
         public void OnMessageReceived(EmployeeDeletedMessage message)
         {
-            Console.WriteLine("Sub1 Msg received : " + message.Description);
+            broker.Notify("Sub1 Msg received : " + message.Description);
+            // Console.WriteLine("Sub1 Msg received : " + message.Description);
         }
 
         public int UnSubscribe()

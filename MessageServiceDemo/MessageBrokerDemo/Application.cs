@@ -23,9 +23,13 @@ namespace MessageBrokerDemo
             //get singleton instance of message bus
             IMessageBus messageBus = MessageBus.getInstance();
 
+            ILogger log = new ConsoleLogger();
+            INotifier broker = new Notifier(log);
+
+
             Publisher publisher = new Publisher(messageBus);
-            Subscriber1 subscriber1 = new Subscriber1(messageBus);
-            Subscriber2 subscriber2 = new Subscriber2(messageBus);
+            Subscriber1 subscriber1 = new Subscriber1(messageBus, broker);
+            Subscriber2 subscriber2 = new Subscriber2(messageBus, broker);
 
             
 
@@ -42,11 +46,11 @@ namespace MessageBrokerDemo
             Task.WaitAll(new Task[] { task1, task2 }); // <-- this will wait for both to complete
 
             
-            Console.WriteLine("Start -UnSubscribing all events from sub1 ");
+            Console.WriteLine("Start -UnSubscribing all events from sub1 -created msgs ");
             //subscriber1.UnSubscribe();
             subscriber1.UnSubscribeTo<EmployeeCreatedMessage>();
 
-            Console.WriteLine("End -UnSubscribing all events from sub1 ");
+            Console.WriteLine("End -UnSubscribing all events from sub1-created msgs ");
 
             task1 = Task.Factory.StartNew(() =>
             {
